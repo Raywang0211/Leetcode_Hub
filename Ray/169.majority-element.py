@@ -7,17 +7,12 @@
 # @lc code=start
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        total = {}
-        max_number = len(nums)//2+1
-        for i in nums:
-            if str(i) in total:
-                total[str(i)]+=1
-                if total[str(i)]>=max_number:
-                    return i
-            else:
-                total[str(i)]=1
-                if total[str(i)]>=max_number:
-                    return i
+        mid = len(nums)//2
+        elem = set(nums)
+
+        for i in elem:
+            if nums.count(i)>mid:
+                return i
     
 # @lc code=end
 

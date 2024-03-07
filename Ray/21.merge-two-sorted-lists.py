@@ -12,16 +12,17 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        ans=new_head = ListNode()
-        while list1 is not None and list2 is not None:
+        ans = newHead = ListNode()
+
+        while list1 and list2:
             if list1.val<list2.val:
-                new_head.next = list1
+                newHead.next = list1
                 list1 = list1.next
             else:
-                new_head.next = list2
+                newHead.next = list2
                 list2 = list2.next
-            new_head = new_head.next
-        new_head.next = list2 if list1 is None else list1
-        return ans.next
+            newHead = newHead.next
+        newHead.next = list1 or list2
+        return ans.next 
 # @lc code=end
 
